@@ -71,7 +71,7 @@
 						<input class="form-control" placeholder="Currency2"
 							v-model="quote.ccy2">  -->
 						<select class="form-control"
-							placeholder="Currency2" v-model="quote.ccy2"  >
+							placeholder="Currency2" v-model="quote.ccy2" @change="ccyChange()"  >
 							<option v-for="ccy in ccyset" > {{ ccy }}</option>
 						</select>
 						</div>
