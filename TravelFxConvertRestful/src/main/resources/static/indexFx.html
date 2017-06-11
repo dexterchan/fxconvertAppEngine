@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FX conversion</title>
+
+  <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+<!-- 
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   -->
+<style>
+.form-control {
+	margin-bottom: 10px;
+}
+
+.btn-danger {
+	margin-top: 8px;
+}
+</style>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<a class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i>
+				Fx Conversion</a>
+		</div>
+	</nav>
+	<div class="container" >
+		<div class="col-sm-7">
+			<div class="panel panel-default" id="fxQuote">
+				<div class="panel-heading">
+					<h3>FX Quote with ccy pair</h3> 
+					<!-- 
+					<button class="btn btn-primary" v-on:click="fetchEvents">refresh</button>
+					 -->
+					 <h3>
+					 
+						<span class="label label-info" >
+						<!-- {{quote.ccy1}}/{{quote.ccy2}}  {{message}}-->
+						{{ presentFXRate }}
+						</span>
+						</h3>
+						<div v-bind:class="classObject" id='errorMsg' v-if="errorMessage.length>0" >
+					 	{{errorMessage}}
+					 	</div>
+				</div>
+				<div class="panel-body">
+
+					<div class="col-sm-5">
+					<!-- 
+						<input class="form-control" placeholder="Currency1"
+							v-model="quote.ccy1">  -->
+							<select class="form-control"
+							placeholder="Currency1" v-model="quote.ccy1" @change="ccyChange()" >
+							<option v-for="ccy in ccyset" > {{ ccy }}</option>
+						</select>
+					</div>
+					<div class="col-sm-5">
+					<!-- 
+						<input class="form-control" placeholder="Currency2"
+							v-model="quote.ccy2">  -->
+						<select class="form-control"
+							placeholder="Currency2" v-model="quote.ccy2"  >
+							<option v-for="ccy in ccyset" > {{ ccy }}</option>
+						</select>
+						</div>
+						<p>
+						
+						<button class="btn btn-primary" v-on:click="quoteFX">Send</button>
+						
+				</div>
+			</div>
+		</div>
+		<!-- 
+		<div class="col-sm-5">
+			<div class="list-group">
+				<a href="#" class="list-group-item" v-for="event in events">
+					<h4> {{ event.id }}</h4>
+					<h4 class="list-group-item-heading">
+						<i class="glyphicon glyphicon-bullhorn"></i> {{ event.title }}
+					</h4>
+					<h5>
+						<i class="glyphicon glyphicon-calendar" v-if="event.date"></i> {{
+						event.date }}
+					</h5>
+					<p class="list-group-item-text" v-if="event.detail">{{
+						event.detail }}</p>
+					<button class="btn btn-xs btn-danger"
+						v-on:click="deleteEvent($index,event.id )">移除事件</button>
+				</a>
+			</div>
+		</div>
+		 -->
+	</div>
+
+</body>
+ 
+<script src="/webjars/vue/2.0.1/dist/vue.min.js"></script>
+<script src="/webjars/vue-resource/0.9.3/vue-resource.min.js"></script>
+
+<!-- 
+<script src="/js/node_modules/vue/dist/vue.min.js"></script>
+
+<script src="/js/node_modules/vue-resource/dist/vue-resource.min.js"></script>
+ -->
+
+<script src="/js/FxGuiController.js"></script>
+</html>

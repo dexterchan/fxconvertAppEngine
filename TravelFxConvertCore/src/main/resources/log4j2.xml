@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+	<Appenders>
+	<!-- 
+		<RollingFile name="RollingFile" fileName="${log-path}/TravelFxConvertRestful.log"
+			filePattern="${log-path}/TravelFxConvertRestful-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>%d %level - %C{1}: %m %F %L %n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="250 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+ -->
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>%d %level - %C{1}: %m %F %L %n</pattern>
+			</PatternLayout>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="root" level="debug" additivity="false">
+			<appender-ref ref="STDOUT" level="debug" />
+		</Logger>
+		<Root level="debug" additivity="false">
+			<AppenderRef ref="STDOUT" />
+		</Root>
+		<Root level="info" additivity="false">
+			<AppenderRef ref="STDOUT" />
+		</Root>
+	</Loggers>
+</Configuration>
